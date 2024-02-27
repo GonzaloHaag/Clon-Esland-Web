@@ -213,8 +213,8 @@ export const Palmares = () => {
                                     liSelected === element.id && (
                                     cardsArchivo.map((card) => (
                                         liSelected === card.id && (
-                                            <div className="flex w-full p-2 md:hidden transition-all duration-200 animate-fade-down">
-                                                <img src={card.imagen} className="w-28 h-auto" />
+                                            <div className="flex w-full p-2 md:hidden">
+                                                <img src={card.imagen} className="w-28 h-auto" loading='lazy' />
                                                 <div className='flex flex-col text-center justify-center w-full gap-y-2 shadow-none'>
                                                     <p className='uppercase font-semibold'>{card.nombre}</p>
                                                     <span>COMUNIDAD: {card.comunidad} %</span>
@@ -224,6 +224,7 @@ export const Palmares = () => {
                                             </div>
                                         )
                                     ))
+                                
                                     )
                                 }
                             </li>
@@ -242,7 +243,7 @@ export const Palmares = () => {
                                      <span class='absolute bg-white text-2xl w-fit p-5 rounded-lg text-blue-950 font-bold top-[65%] left-[40%] z-10'>
                                         1°
                                      </span>
-                                     <img src={card.imagen} alt={card.nombre} className='mix-blend-luminosity' />
+                                     <img src={card.imagen} alt={card.nombre} className='mix-blend-luminosity' loading='lazy' />
                                      <div className='p-5 flex flex-col text-start'>
                                      <p className='uppercase font-semibold text-lg mt-5'>{card.nombre}</p>
                                      <span className='text-lg font-semibold text-blue-950'>COMUNIDAD: {card.comunidad} %</span>

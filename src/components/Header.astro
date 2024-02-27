@@ -1,6 +1,8 @@
 ---
 /*Solo tengo que empezar a escribir el html */
 import HeaderMobile from './HeaderMobile.astro';
+const { pathname } = Astro.url;
+console.log(pathname)
 ---
 
 {/*header desktop */}
@@ -11,12 +13,12 @@ import HeaderMobile from './HeaderMobile.astro';
      </a>
      <nav class="">
         <ul class="flex items-center gap-x-14 text-xl font-semibold">
-            <a href="/info">INFO</a>
-            <a href="/archivo">ARCHIVO</a>
-            <a href="/finalistas">FINALISTAS</a>
+            <a href="/info" class={`hover:underline ${pathname === '/info' ? 'text-orange-500 underline underline-offset-4' : ''}`}>INFO</a>
+            <a href="/archivo" class={`hover:underline ${pathname === '/archivo' ? 'text-orange-500 underline underline-offset-4' : ''}`}>ARCHIVO</a>
+            <a href="/finalistas" class={`hover:underline ${pathname === '/finalistas' ? 'text-orange-500 underline underline-offset-4' : ''}`}>FINALISTAS</a>
         </ul>
      </nav>
-     <a href="#" class="my-button-shadow w-fit px-4 py-2 border border-solid border-white rounded-full">
+     <a href="/esland-fortnite" class="my-button-shadow w-fit px-4 py-2 border border-solid border-white rounded-full">
         ISLA ESLAND
      </a>
    </div>

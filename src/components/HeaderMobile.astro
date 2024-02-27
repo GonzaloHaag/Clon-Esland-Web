@@ -1,4 +1,7 @@
+---
 {/*header mobile */}
+const { pathname } = Astro.url
+---
 <header id="header-nav-mobile" class="fixed w-full flex items-center justify-between md:hidden py-4 px-4 z-50">
    <a href="/">
       <img class="w-12" src="/logo.png" alt="logo esland" />
@@ -13,16 +16,16 @@
     </svg>
     <ul class="flex flex-col text-center gap-y-10">
        <li>
-         <a href="/info" class="nav-link">INFO</a>
+         <a href="/info" class={`nav-link ${pathname === '/info' ? 'underline underline-offset-4' : ''}`}>INFO</a>
        </li>
        <li>
-         <a href="/archivo" class="nav-link">ARCHIVO</a>
+         <a href="/archivo" class={`nav-link ${pathname === '/archivo' ? 'underline underline-offset-4' : ''}`}>ARCHIVO</a>
        </li>
        <li>
-         <a href="/finalistas" class="nav-link">FINALISTAS</a>
+         <a href="/finalistas" class={`nav-link ${pathname === '/finalistas' ? 'underline underline-offset-4' : ''}`}>FINALISTAS</a>
        </li>
     </ul>
-    <a href="#" class="my-button-shadow w-fit px-12 py-2 border border-solid border-white rounded-full mt-10">
+    <a href="/esland-fortnite" class="my-button-shadow w-fit px-12 py-2 border border-solid border-white rounded-full mt-10">
       ISLA ESLAND
    </a>
  </nav>
@@ -34,15 +37,15 @@
     const svgOpen = document.getElementById('open-nav');
 	  const svgClose = document.getElementById('close-nav');
 	  const navMobile = document.getElementById('nav-mobile');
-    svgOpen.addEventListener('click',() => {
-	   navMobile.classList.remove('-translate-y-full','opacity-0','invisible');
-	   navMobile.classList.add('translate-y-0','opacity-100','visible');
-	   svgOpen.classList.add('hidden'); //Lo escondo cuando se abre el menu
+    svgOpen?.addEventListener('click',() => {
+	   navMobile?.classList.remove('-translate-y-full','opacity-0','invisible');
+	   navMobile?.classList.add('translate-y-0','opacity-100','visible');
+	   svgOpen?.classList.add('hidden'); //Lo escondo cuando se abre el menu
 	});
-	svgClose.addEventListener('click',() => {
-	   navMobile.classList.remove('translate-y-0','opacity-100','visible');
-	   navMobile.classList.add('-translate-y-full','opacity-0','invisible');
-	   svgOpen.classList.remove('hidden');
+	svgClose?.addEventListener('click',() => {
+	   navMobile?.classList.remove('translate-y-0','opacity-100','visible');
+	   navMobile?.classList.add('-translate-y-full','opacity-0','invisible');
+	   svgOpen?.classList.remove('hidden');
 	});
 });
 
