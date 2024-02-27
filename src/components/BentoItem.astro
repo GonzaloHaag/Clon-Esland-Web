@@ -1,0 +1,35 @@
+---
+interface Props {
+    class?:string; //para pasarle clases especificas a cada uno
+    title:string;
+    subtitle?:string;
+}
+
+const {title,subtitle} = Astro.props;
+---
+<article class={`${Astro.props.class} relative rounded-xl backdrop-blur-md border border-black/10 shadow-inner shadow-white/10 overflow-hidden group`}>
+    {/*div para generar un degradado de transparente a negro abajo para que se vea mejor el texto */}
+    <div
+    class="absolute bottom-0 top-0 z-10 h-full w-full
+    bg-gradient-to-b from-transparent from-40% via-[#151836]/50 to-[#151836]/80"
+  >
+  </div>
+  <slot name="image" /> {/*este slot va a ser un div con el bg image de cada bentoitem */}
+  <div
+    class="relative z-20 flex h-full select-none flex-col justify-end gap-1 p-4 text-lg md:p-6"
+  >
+  <h2 class="mb-4 text-balance text-3xl font-semibold uppercase text-white">
+    {title}
+  </h2>
+  {
+    subtitle && (
+        //lo dibujo solo si viene
+    <h3 class="-mt-4 mb-4 text-3xl font-semibold text-sky-200/80">
+          {subtitle}
+        </h3>
+    )
+  }
+   <slot name="content" /> {/*aca ira el p de la descripcion que lo pondre en el Bento Grid <p slot="content"></p> */}
+</div>
+
+</article>

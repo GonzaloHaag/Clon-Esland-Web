@@ -1,0 +1,29 @@
+---
+import 'photoswipe/style.css';
+---
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto gap-12" id="my-gallery">
+    {
+        Array.from({length:12}).map((v,i) => (
+            //me creo un array de 9 elementos para llamar las imagenes dinamicamente, el i arranca en 0, por lo tanto es i + 1
+            <a href={`/gallery/img-${i+1}.webp`} data-pswp-width="1152" data-pswp-height="767" target="_blank">
+             <img
+              loading="lazy"
+              class="rounded-xl hover:shadow-xl hover:shadow-blue-800/80 transition-shadow duration-300"
+              src={`/gallery/thumbnails/img-${i+1}.webp`} alt="">
+            </a>
+        ))
+    }
+  </div>
+<script>
+    import PhotoSwipeLightbox from 'photoswipe/lightbox';
+    document.addEventListener('astro:page-load',() => {
+         const lightbox = new PhotoSwipeLightbox({
+      gallery: '#my-gallery',
+      children: 'a',
+      pswpModule: () => import('photoswipe')
+    });
+    lightbox.init();
+
+    })
+  
+</script>

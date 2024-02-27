@@ -1,0 +1,30 @@
+---
+import HeroContainer from '../components/HeroContainer.astro';
+import Layout from '../layouts/Layout.astro';
+import Galeria from '../components/Galeria.astro';
+import NumerosArchivo from '../components/NumerosArchivo.astro';
+import { Palmares } from '../components/Palmares.tsx';
+---
+
+<Layout title='Archivo - Esland web' description='Description página archivo - esland web'>
+ <HeroContainer bgImage='archivo-hero.webp'>
+    {/*ESTO SE RENDERIZARA COMO EL SLOT QUE INDIQUE EN EL HERO */}
+    <h1
+    class="text-3xl md:text-5xl font-semibold animate-fade-up text-center text-balance">
+    EDICIONES ANTERIORES
+    </h1>
+    <a target="_blank" href="https://www.youtube.com/watch?v=1YmpPrqKP-g&ab_channel=TheGrefg" class="my-button-shadow px-8 py-2 border border-solid border-white rounded-full mt-20 animate-fade-up">
+        REVIVE LA ÚLTIMA GALA
+    </a>
+ </HeroContainer>
+ <main class="my-40">
+    <section class="flex flex-col gap-y-5 p-4 2xl:p-0">
+        <h2 class="text-4xl font-semibold text-center">PALMARÉS</h2>
+        <Palmares client:visible />
+        <h2 class="text-4xl font-semibold text-center">GALERÍA</h2>
+        <p class="text-balance text-xl text-center">Algunos de los mejores momentos de la gala que pasarán a la historia.</p>
+        <Galeria />
+        <NumerosArchivo />
+    </section>
+ </main>
+</Layout>

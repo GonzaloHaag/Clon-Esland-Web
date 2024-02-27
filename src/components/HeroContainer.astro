@@ -1,0 +1,17 @@
+---
+/*Yo en todas las paginas quiero que mi bg tenga el clip-path abajo para hacer ese efecto de que la pagina
+sigue hacia abajo, entonces voy a recibir el bg-image y listo. Para reutilizarlo */
+interface Props {
+    bgImage:string;
+}
+const { bgImage } = Astro.props;
+---
+<div 
+class='relative bg-center bg-cover bg-no-repeat h-[90vh] w-full max-w-[100vw]' style={`clip-path:polygon(0 0, 100% 0, 100% 85%,50% 100%,50% 100%,0% 85%);background-image:url('${bgImage}')`}>
+    <div
+    class="absolute inset-0 m-auto w-full h-full flex justify-center flex-col items-center px-4 md:px-0"
+  >
+  {/*aca voy a poner el contenido que tenga cada hero, lo que cambiara cad vez que lo llame se renderizara aca */}
+    <slot />
+  </div>
+</div>
