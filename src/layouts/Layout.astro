@@ -20,13 +20,36 @@ const { title, description } = Astro.props;
 		<meta name="viewport" content="width=device-width" />
 		<meta name="description" content={description} />
 		<link rel="icon" type="image/svg+xml" href="/favicon-esland.ico" />
-		<ViewTransitions /> {/*Transicion entre paginas */}
 		<title>{title}</title>
+		<ViewTransitions /> {/*Transicion entre paginas */}
 	</head>
 	<body>
 		<Header /> {/*Fijo en todas las paginas */}
 		<slot /> {/*esto es lo que cambiara en cada pagina que llame al layout, funciona como children */}
 		<Footer /> {/*Fijo en todas las paginas */}
+		<script>
+
+			document.addEventListener('astro:page-load', () => {
+			 
+			  // Tu código aquí
+			  //al usar viewTransition necesitamos decirle que cargue el script en todas las transiciones
+			  const svgOpen = document.getElementById('open-nav');
+			  const svgClose = document.getElementById('close-nav');
+			  const navMobile = document.getElementById('nav-mobile');
+			  svgOpen?.addEventListener('click',() => {
+			   navMobile?.classList.remove('-translate-y-full','opacity-0','invisible');
+			   navMobile?.classList.add('translate-y-0','opacity-100','visible');
+			   svgOpen?.classList.add('hidden'); //Lo escondo cuando se abre el menu
+			});
+			svgClose?.addEventListener('click',() => {
+			   navMobile?.classList.remove('translate-y-0','opacity-100','visible');
+			   navMobile?.classList.add('-translate-y-full','opacity-0','invisible');
+			   svgOpen?.classList.remove('hidden');
+			});
+		   
+		   });
+		   </script>
+		   
 	</body>
 </html>
 <style is:global>
