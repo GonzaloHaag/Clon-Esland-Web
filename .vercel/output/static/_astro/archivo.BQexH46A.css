@@ -1,0 +1,1 @@
+.li-palmares{transition:all;transition-duration:.2s}.li-palmares.selected{box-shadow:0 0 10px #fff;text-shadow:1px 1px 20px #fff;scale:1.05}@media (max-width:768px){.li-palmares.selected{scale:1;text-shadow:none}}
