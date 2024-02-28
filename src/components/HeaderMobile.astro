@@ -22,16 +22,16 @@ const { pathname } = Astro.url
  
     <ul class="flex flex-col text-center gap-y-10">
        <li>
-         <a href="/info" class={`nav-link ${pathname === '/info' ? 'underline underline-offset-4' : ''}`}>INFO</a>
+         <a href="/info" class={`nav-link ${pathname === '/info' ? 'underline underline-offset-4' : ''} font-medium text-lg`}>INFO</a>
        </li>
        <li>
-         <a href="/archivo" class={`nav-link ${pathname === '/archivo' ? 'underline underline-offset-4' : ''}`}>ARCHIVO</a>
+         <a href="/archivo" class={`nav-link ${pathname === '/archivo' ? 'underline underline-offset-4' : ''} font-medium text-lg`}>ARCHIVO</a>
        </li>
        <li>
-         <a href="/finalistas" class={`nav-link ${pathname === '/finalistas' ? 'underline underline-offset-4' : ''}`}>FINALISTAS</a>
+         <a href="/finalistas" class={`nav-link ${pathname === '/finalistas' ? 'underline underline-offset-4' : ''} font-medium text-lg`}>FINALISTAS</a>
        </li>
     </ul>
-    <a href="/esland-fortnite" class="my-button-shadow w-fit px-12 py-2 border border-solid border-white rounded-full mt-10">
+    <a href="/esland-fortnite" class="my-button-shadow w-fit px-12 py-2 border border-solid border-white rounded-full mt-10 font-normal text-base">
       ISLA ESLAND
    </a>
  </nav>
