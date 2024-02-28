@@ -31,7 +31,7 @@ const { pathname } = Astro.url
  </nav>
 </header>
 
-<script>
+<script is:inline>
   document.addEventListener('astro:page-load', () => {
     //al usar viewTransition necesitamos decirle que cargue el script en todas las transiciones
     const svgOpen = document.getElementById('open-nav');
