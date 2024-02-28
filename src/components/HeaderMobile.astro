@@ -32,27 +32,25 @@ const { pathname } = Astro.url
 </header>
 
 <script>
-  window.addEventListener('load',() => {
-    document.addEventListener('astro:page-load', () => {
-   
-   // Tu código aquí
-   //al usar viewTransition necesitamos decirle que cargue el script en todas las transiciones
-   const svgOpen = document.getElementById('open-nav');
-   const svgClose = document.getElementById('close-nav');
-   const navMobile = document.getElementById('nav-mobile');
-   svgOpen?.addEventListener('click',() => {
-    navMobile?.classList.remove('-translate-y-full','opacity-0','invisible');
-    navMobile?.classList.add('translate-y-0','opacity-100','visible');
-    svgOpen?.classList.add('hidden'); //Lo escondo cuando se abre el menu
- });
- svgClose?.addEventListener('click',() => {
-    navMobile?.classList.remove('translate-y-0','opacity-100','visible');
-    navMobile?.classList.add('-translate-y-full','opacity-0','invisible');
-    svgOpen?.classList.remove('hidden');
- });
-  
-  });
-  })
 
+  document.addEventListener('astro:page-load', () => {
+   
+    // Tu código aquí
+    //al usar viewTransition necesitamos decirle que cargue el script en todas las transiciones
+    const svgOpen = document.getElementById('open-nav');
+    const svgClose = document.getElementById('close-nav');
+    const navMobile = document.getElementById('nav-mobile');
+    svgOpen?.addEventListener('click',() => {
+     navMobile?.classList.remove('-translate-y-full','opacity-0','invisible');
+     navMobile?.classList.add('translate-y-0','opacity-100','visible');
+     svgOpen?.classList.add('hidden'); //Lo escondo cuando se abre el menu
+  });
+  svgClose?.addEventListener('click',() => {
+     navMobile?.classList.remove('translate-y-0','opacity-100','visible');
+     navMobile?.classList.add('-translate-y-full','opacity-0','invisible');
+     svgOpen?.classList.remove('hidden');
+  });
+   
+   });
    </script>
 
