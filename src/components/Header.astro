@@ -8,9 +8,12 @@ console.log(pathname)
 {/*header desktop */}
 <header id="header-nav-desktop" class="fixed w-full hidden md:block top-0 py-4 z-50 px-8 2xl:px-0">
    <div class="max-w-7xl mx-auto flex items-center justify-between gap-16">
-     <a href="/">
-        <img src="/logo.png" alt="logo esland" class="w-10 h-12"/>
-     </a>
+      <div class="flex flex-grow basis-0">
+         
+         <a href="/">
+            <img src="/logo.png" alt="logo esland" class="w-10 h-12"/>
+         </a>
+      </div>
      <nav>
         <ul class="flex items-center gap-x-14 text-xl font-semibold">
             <a href="/info" class={`hover:underline ${pathname === '/info' ? 'text-orange-500 underline underline-offset-4' : ''} font-medium text-lg`}>INFO</a>
@@ -18,9 +21,13 @@ console.log(pathname)
             <a href="/finalistas" class={`hover:underline ${pathname === '/finalistas' ? 'text-orange-500 underline underline-offset-4' : ''} font-medium text-lg`}>FINALISTAS</a>
         </ul>
      </nav>
-     <a href="/esland-fortnite" class="my-button-shadow w-fit px-4 py-2 border border-solid border-white rounded-full text-base font-normal">
-        ISLA ESLAND
-     </a>
+     <div class="flex flex-grow basis-0 justify-end">
+      {/*importante usar flex-grow y basis-0 para que el div del medio quede centrado */}
+      <a href="/esland-fortnite" class="my-button-shadow w-fit px-4 py-2 border border-solid border-white rounded-full text-base font-normal">
+         ISLA ESLAND
+      </a>
+     </div>
+   
    </div>
 </header>
 <HeaderMobile />
